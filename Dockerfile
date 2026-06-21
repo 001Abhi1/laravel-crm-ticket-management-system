@@ -1,12 +1,12 @@
-FROM php:8.3-apache
+FROM php:8.5-cli
 
 RUN apt-get update && apt-get install -y \
-    git unzip zip libpq-dev libzip-dev \
-    && docker-php-ext-install pdo pdo_pgsql zip
+    git unzip zip libzip-dev libpng-dev libonig-dev libxml2-dev \
+    && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www/html
+WORKDIR /app
 
 COPY . .
 
@@ -16,12 +16,6 @@ RUN cp .env.example .env || true
 
 RUN php artisan key:generate || true
 
-RUN chown -R www-data:www-data storage bootstrap/cache
+EXPOSE 8000
 
-RUN a2enmod rewrite
-
-COPY ./.render/apache.conf /etc/apache2/sites-available/000-default.conf
-
-EXPOSE 80
-
-CMD php artisan migrate --force && apache2-foreground
+CMD php artisan serve --host=0.0.0.0 --port=8000
