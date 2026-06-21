@@ -342,6 +342,12 @@ return [
     //     'icon' => 'fas fa-cog',
     // ],
 
+[
+    'text' => 'Logout',
+    'url' => '/logout-user',
+    'icon' => 'fas fa-sign-out-alt',
+],
+
 ],
 
     /*

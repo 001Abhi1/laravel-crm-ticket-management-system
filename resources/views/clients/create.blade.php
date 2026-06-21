@@ -10,81 +10,75 @@
 
 <div class="card">
 
-<div class="card-body">
+    <div class="card-body">
 
-<form action="{{ route('clients.store') }}" method="POST">
+        <form action="{{ route('clients.store') }}" method="POST">
 
-@csrf
+            @csrf
 
-<div class="form-group">
-<label>Name</label>
-<input type="text" name="name" class="form-control" required>
-</div>
+            <div class="row">
 
-<br>
+                <div class="form-group col-12 col-md-6">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
 
-<div class="form-group">
-<label>Company</label>
-<input type="text" name="company" class="form-control">
-</div>
+                <div class="form-group col-12 col-md-6">
+                    <label>Company</label>
+                    <input type="text" name="company" class="form-control">
+                </div>
 
-<br>
+            </div>
 
-<div class="form-group">
-<label>Email</label>
-<input type="email" name="email" class="form-control" required>
-</div>
+            <div class="row">
 
-<br>
+                <div class="form-group col-12 col-md-6">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
 
-<div class="form-group">
-<label>Phone</label>
-<input type="text" name="phone" class="form-control">
-</div>
+                <div class="form-group col-12 col-md-6">
+                    <label>Phone</label>
+                    <input type="text" name="phone" class="form-control">
+                </div>
 
-<br>
+            </div>
 
-<div class="form-group">
-<label>Status</label>
+            <div class="form-group">
+                <label>Status</label>
 
-<select name="status" class="form-control">
+                <select name="status" class="form-control">
 
-<option value="Active">
-Active
-</option>
+                    <option value="Active">
+                        Active
+                    </option>
 
-<option value="Inactive">
-Inactive
-</option>
+                    <option value="Inactive">
+                        Inactive
+                    </option>
 
-</select>
+                </select>
 
-</div>
+            </div>
 
-<br>
+            <div class="form-group">
+                <label>Notes</label>
 
-<div class="form-group">
-<label>Notes</label>
+                <textarea
+                    name="notes"
+                    class="form-control"
+                    rows="4">
+                </textarea>
 
-<textarea
-name="notes"
-class="form-control"
-rows="4">
-</textarea>
+            </div>
 
-</div>
+            <button class="btn btn-success d-block d-md-inline-block">
+                Save Client
+            </button>
 
-<br>
+        </form>
 
-<button class="btn btn-success">
-
-Save Client
-
-</button>
-
-</form>
-
-</div>
+    </div>
 
 </div>
 

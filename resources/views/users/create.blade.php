@@ -10,96 +10,100 @@
 
 <div class="row justify-content-center">
 
-<div class="col-md-8">
+    <div class="col-12 col-lg-8">
 
-<div class="card card-primary">
+        <div class="card card-primary">
 
-<div class="card-header">
-<h3 class="card-title">
-Add New User
-</h3>
-</div>
+            <div class="card-header">
+                <h3 class="card-title">
+                    Add New User
+                </h3>
+            </div>
 
-<form action="{{ route('users.store') }}" method="POST">
+            <form action="{{ route('users.store') }}" method="POST">
 
-@csrf
+                @csrf
 
-<div class="card-body">
+                <div class="card-body">
 
-<div class="form-group">
-<label>Name</label>
+                    <div class="row">
 
-<input
-type="text"
-name="name"
-class="form-control"
-required>
-</div>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Name</label>
 
-<div class="form-group">
-<label>Email</label>
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                required>
+                        </div>
 
-<input
-type="email"
-name="email"
-class="form-control"
-required>
-</div>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Email</label>
 
-<div class="form-group">
-<label>Password</label>
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                required>
+                        </div>
 
-<input
-type="password"
-name="password"
-class="form-control"
-required>
-</div>
+                    </div>
 
-<div class="form-group">
+                    <div class="row">
 
-<label>Role</label>
+                        <div class="form-group col-12 col-md-6">
+                            <label>Password</label>
 
-<select
-name="role"
-class="form-control">
+                            <input
+                                type="password"
+                                name="password"
+                                class="form-control"
+                                required>
+                        </div>
 
-@foreach($roles as $role)
+                        <div class="form-group col-12 col-md-6">
 
-<option value="{{ $role->name }}">
-{{ $role->name }}
-</option>
+                            <label>Role</label>
 
-@endforeach
+                            <select
+                                name="role"
+                                class="form-control">
 
-</select>
+                                @foreach($roles as $role)
 
-</div>
+                                    <option value="{{ $role->name }}">
+                                        {{ $role->name }}
+                                    </option>
 
-</div>
+                                @endforeach
 
-<div class="card-footer">
+                            </select>
 
-<button class="btn btn-success">
+                        </div>
 
-Save User
+                    </div>
 
-</button>
+                </div>
 
-<a href="{{ route('users.index') }}"
-class="btn btn-secondary">
+                <div class="card-footer">
 
-Cancel
+                    <button class="btn btn-success mr-2 mb-2 mb-sm-0">
+                        Save User
+                    </button>
 
-</a>
+                    <a href="{{ route('users.index') }}"
+                       class="btn btn-secondary mb-2 mb-sm-0">
+                        Cancel
+                    </a>
 
-</div>
+                </div>
 
-</form>
+            </form>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </div>
 

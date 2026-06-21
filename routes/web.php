@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 /*
@@ -64,5 +64,19 @@ Route::middleware(['auth', 'role:Super Admin'])->group(function () {
 | Auth Routes
 |--------------------------------------------------------------------------
 */
+
+use Illuminate\Support\Facades\Auth;
+
+Route::get('/logout-user', function () {
+
+    Auth::logout();
+
+    request()->session()->invalidate();
+
+    request()->session()->regenerateToken();
+
+    return redirect('/');
+
+})->middleware('auth')->name('logout.user');
 
 require __DIR__.'/auth.php';
